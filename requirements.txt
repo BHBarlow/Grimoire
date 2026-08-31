@@ -1,0 +1,11 @@
+# Web API
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9   # file uploads (multipart/form-data)
+
+# Extraction
+PyMuPDF>=1.24      # PDF text + page bounding boxes + TOC; ships aarch64 wheels for the Pi
+EbookLib>=0.18     # EPUB metadata only (title/author) for the library catalogue
+
+# Config
+python-dotenv>=1.0

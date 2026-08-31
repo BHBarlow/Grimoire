@@ -1,0 +1,19 @@
+# Source books — keep these off git, they live on disk
+books/
+
+# Disposable database — rebuild anytime with `python -m indexer.index`
+grimoire.db
+grimoire.db-wal
+grimoire.db-shm
+
+# Generated cover thumbnails — regenerated on demand
+covers/
+
+# Environment
+.venv/
+.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/

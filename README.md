@@ -17,7 +17,7 @@ of PDFs and EPUBs.
 
 ## Features
 
-- [ ] Per-page full-text search across PDF and EPUB
+- [ ] Per-page full-text search across PDFs (EPUBs catalogued for download only)
 - [ ] Ranked results (BM25) with highlighted snippets
 - [ ] Deep links into pdf.js at the matching page
 - [ ] Idempotent indexer — hash-based, safe to re-run
@@ -29,7 +29,7 @@ of PDFs and EPUBs.
 
 | Layer     | Choice                | Why                                  |
 |-----------|-----------------------|--------------------------------------|
-| Extract   | PyMuPDF, ebooklib     | Fast, per-page, gives bounding boxes |
+| Extract   | PyMuPDF, ebooklib     | PDF text/pages; EPUB metadata only   |
 | Index     | SQLite FTS5           | No extra service, `snippet()` builtin|
 | API       | FastAPI               | Async, auto docs                     |
 | Reader    | pdf.js                | `#page=N` deep links                 |
@@ -43,7 +43,7 @@ grimoire/
 ├── grimoire.db         # disposable, rebuild anytime
 ├── indexer/
 │   ├── walk.py         # discover + hash files
-│   ├── extract.py      # PDF/EPUB → (page, text)
+│   ├── extract.py      # PDF → (page, text); EPUB → metadata only
 │   └── index.py        # write to FTS5
 ├── api/
 │   ├── main.py         # FastAPI routes
@@ -139,8 +139,7 @@ gives you "this book mentions it somewhere"; one row per page gives you
 rebuilds from scratch. Never be afraid to `rm grimoire.db`.
 
 **Section labels** come from the PDF outline (PyMuPDF `doc.get_toc()`) mapped
-to page ranges, or EPUB spine item titles. Fall back to page number when
-absent.
+to page ranges. Fall back to page number when absent.
 
 ## Roadmap
 
