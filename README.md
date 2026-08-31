@@ -1,10 +1,12 @@
 # Grimoire
 
-Self-hosted library for technical books, with full-text search that actually
+Self-hosted library for books, with full-text search that actually
 searches *inside* the books.
 
-Search "iptables NAT" → get every book containing it, the matching page, a
+Search "example" → get every book containing it, the matching page, a
 highlighted excerpt, and a link that opens the PDF at that exact page.
+It will also have a drop down per book to help with having too many results
+clog up the screen. 
 
 ---
 
@@ -12,15 +14,14 @@ highlighted excerpt, and a link that opens the PDF at that exact page.
 
 Calibre-Web, Kavita, and Komga all serve files well, but none of them search
 book contents. Calibre itself has FTS5 indexing but locks it in the desktop
-app. Grimoire is the missing piece: an Obsidian-style search bar over a shelf
-of PDFs and EPUBs.
+app. I wanted to make Grimoire to be the missing piece.
 
 ## Features
 
 - [ ] Per-page full-text search across PDFs (EPUBs catalogued for download only)
 - [ ] Ranked results (BM25) with highlighted snippets
 - [ ] Deep links into pdf.js at the matching page
-- [ ] Idempotent indexer — hash-based, safe to re-run
+- [ ] Idempotent indexer - hash-based, safe to re-run
 - [ ] OPDS feed
 - [ ] OCR pass for scanned books
 - [ ] Semantic search via sqlite-vec
