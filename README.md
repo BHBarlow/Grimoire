@@ -8,6 +8,11 @@ highlighted excerpt, and a link that opens the PDF at that exact page.
 It will also have a drop down per book to help with having too many results
 clog up the screen. 
 
+## Screenshots 
+
+![Library view](./Grim-Library.png)
+![Search results](./Grim-Search.png)
+
 ---
 
 ## Why
